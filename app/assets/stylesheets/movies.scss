@@ -1,0 +1,33 @@
+// Place all the styles related to the Movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+div.show-image:hover img{
+
+}
+
+div.show-image:hover button
+{
+  display: block;
+}
+
+div.show-image button
+{
+  position: absolute;
+    display: none;
+}
+
+div.show-image display-me.delete
+{
+  top:20;
+  left:69%;
+}
+
+.display-me{
+  display: none;
+}
+
+.show-image:hover > .display-me {
+  display : block;
+}

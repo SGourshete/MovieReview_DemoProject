@@ -1,0 +1,57 @@
+<% if !user_signed_in? %>
+<div class="jumbotron">
+  <h1>Your Favorite Movies Reviewed !!!</h1>
+  <p>Sign in to review</p>
+  <a href=new_user_registration_path class="btn btn-primary btn-lg">Sign Up</a>
+</div>
+<% end -%>
+<div class="row">
+<% a_var=1 %>
+  <% @movies.each do |m| %>
+  <% a_var+=1%>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <div class="show-image">
+        <%= link_to (image_tag m .image.url(:medium),class:'image'), m %>
+
+        <div class="display-me">
+        <!--
+          <%= button_to "Delete Movie", "/delete_movie/#{m.id}", :method => "get", class: 'btn btn-danger'%>
+          //Needs no javascript, no ajax
+        -->
+
+        <!-- Following button link uses ajax -->
+        <a class="btn btn-danger delete_movie_link" data-id="<%= m.id %>" href="delete_movie/<%= m.id%>">Delete</a>
+        </div>
+
+      </div>
+    </div>
+<%= if (!(a_var%4)) then simple_format("\n"); end%>
+  </div>
+
+  <% end %>
+
+  <script>
+
+$.ajax({
+  url: 'delete_movie/#{m.id}',
+  type: 'GET',
+  dataType: 'Intelligent Guess',
+  data: {id: $(this).attr('data-id')},
+})
+.done(function() {
+  $(this).parents('div').remove();
+  console.log("success");
+})
+.fail(function() {
+  console.log("error");
+})
+.always(function() {
+  console.log("complete");
+});
+
+
+  </script>
+true<%= simple_format("\n")%>false
+</div>
+

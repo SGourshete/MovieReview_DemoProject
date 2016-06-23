@@ -1,0 +1,68 @@
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <%= link_to "Home",movies_path,class:'btn btn-primary center-block'%>
+          <br><br>
+          <div class="col-sm-5">
+            <%= image_tag @movie.image.url(:medium) %>
+          </div>
+          <div class="col-sm-6">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th><strong>Title</strong> </th>
+                  <td><%= @movie.title %></td>
+                </tr>
+                <tr>
+                  <th><strong> Description</strong> </th>
+                  <td><%= @movie.description%></td>
+                </tr>
+                <tr>
+                  <th><strong>Movie Length</strong> </th>
+                  <td><%= @movie.movie_length%></td>
+                </tr>
+                <tr>
+                  <th><strong>Director</strong> </th>
+                  <td><%=@movie.director%></td>
+                </tr>
+                <th><strong>Rating</strong> </th>
+                <td><%= @movie.rating%></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="info">
+              </tr>
+            </tbody>
+          </table>
+          <%= link_to "Write a Review",new_movie_review_path(@movie),class:"btn btn-primary" %> |
+          <%= link_to 'Edit movie', edit_movie_path(@movie),class:"btn btn-primary" %></div>
+        </div>
+        <br><br><br>
+        <div>
+          <div class="rows">
+            <% @reviews.each do |r|%>
+            <div class="review">
+              <strong><%= r.user.email%></strong><br>
+              Rating: <div class="star-rating" data-score=<%=r.rating%>></div><br>
+              <%= r.comment%><br><br><br>
+              <%end%></div></div>
+            </div>
+          </div>
+
+
+
+          <%= link_to 'Back', movies_path,class:"btn btn-primary center-block" %>
+
+
+          <script >
+            $('.star-rating').raty
+            (
+            {
+              path: '/assets/',
+              readOnly: true,
+              score: function()
+              {
+                return $(this).attr('data-score');
+              }
+            });
+          </script>
