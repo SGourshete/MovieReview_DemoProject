@@ -2,10 +2,10 @@
 <div class="jumbotron">
   <h1>Your Favorite Movies Reviewed !!!</h1>
   <p>Sign in to review</p>
-  <a href="<%= new_user_registration_path %>" class="btn btn-primary btn-lg">Sign Up</a>
+  <a href="<%=new_user_registration_path%>" class="btn btn-primary btn-lg">Sign Up</a>
 </div>
 <% end -%>
-<div class="row">
+<div class="row movies_container">
 <% a_var=1 %>
   <% @movies.each do |m| %>
   <% a_var+=1%>

@@ -1,0 +1,13 @@
+Searching 136 files for "new_user_registration_path"
+
+/home/swapnil/MovieReview/app/views/movies/index.html.erb:
+    3    <h1>Your Favorite Movies Reviewed !!!</h1>
+    4    <p>Sign in to review</p>
+    5:   <a href="<%=new_user_registration_path>" class="btn btn-primary btn-lg">Sign Up</a>
+    6  </div>
+    7  <% end -%>
+
+/home/swapnil/MovieReview/log/development.log:
+    <binary>
+
+6 matches across 2 files
