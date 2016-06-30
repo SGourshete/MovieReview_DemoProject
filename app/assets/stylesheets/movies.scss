@@ -6,14 +6,15 @@
 div.show-image:hover img{
 
 }
-
-div.show-image:hover button
-{
-  display: block;
+.delete_movie_link {
+  opacity: 0;
+  transition: opacity .5s;
+}
+div.show-image:hover .delete_movie_link {
+  opacity: 1;
 }
 
-div.show-image button
-{
+div.show-image button {
   position: absolute;
     display: none;
 }
@@ -24,10 +25,17 @@ div.show-image display-me.delete
   left:69%;
 }
 
-.display-me{
-  display: none;
+.show-image {
+  text-align: center;
 }
 
 .show-image:hover > .display-me {
   display : block;
+}
+
+.movies_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
